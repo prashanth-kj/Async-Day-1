@@ -1,22 +1,24 @@
 //callback hell task:
 //-------------------
 
-let countTimer = (seconds, callback) => {
-  callback(seconds);
-}
+let countTimerEl = document.getElementById('countdown');
 
-let countdown = (seconds) => {
-  if (seconds > 0) {
-    console.log(seconds);
+  let countTimer = (seconds, callback) => {
+    countTimerEl.innerHTML = seconds;
     seconds--;
-    setTimeout(() => countdown(seconds), 1000);
-  } else {
-    console.log("Happy Independence Day");
+
+    if (seconds> 0) {
+        setTimeout(() => countTimer(seconds,callback), 1000);
+    } else {
+          callback();
+    }
   }
-}
+
+  let countdown = () => {
+      countTimerEl.innerHTML="Happy Independence Day!";
+  }
 
 countTimer(10, countdown);
-
 
 
 
