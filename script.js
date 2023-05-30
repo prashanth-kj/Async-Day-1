@@ -7,7 +7,7 @@ let countTimerEl = document.getElementById('countdown');
     countTimerEl.innerHTML = seconds;
     seconds--;
 
-    if (seconds> 0) {
+    if (seconds>=0) {
         setTimeout(() => countTimer(seconds,callback), 1000);
     } else {
           callback();
